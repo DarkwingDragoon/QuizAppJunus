@@ -123,6 +123,10 @@ function answer(selection) {
 
 function nextQuestion() {
  currentQuestion++;
+  document.getElementById('answer_1').parentNode.classList.remove('bg-success', 'bg-danger');
+  document.getElementById('answer_2').parentNode.classList.remove('bg-success', 'bg-danger');
+  document.getElementById('answer_3').parentNode.classList.remove('bg-success', 'bg-danger');
+  document.getElementById('answer_4').parentNode.classList.remove('bg-success', 'bg-danger');
  showQuestion();
 }
 

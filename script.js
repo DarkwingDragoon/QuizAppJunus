@@ -99,3 +99,15 @@ function showQuestion() {
  document.getElementById('answer_4').innerHTML = question['answer_4'];
  document.getElementById('currentQuestionNumber').innerHTML = currentQuestion + 1;
 }
+
+function answer(selection) {
+ let question = questions[currentQuestion];
+ let selectedAnswer = document.getElementById('answer_' + selection).innerHTML;
+ let rightAnswer = question['right_answer'];
+}
+
+function nextQuestion() {
+ currentQuestion++;
+ showQuestion();
+}
+

@@ -5,31 +5,31 @@ let questions = [
     "answer_2": "Simple Query Layer",
     "answer_3": "System Quality Language",
     "answer_4": "Source Query Logic",
-    "right_answer": "Structured Query Language"
+    "right_answer": 1
   },
   {
     "question": "Welche Datenstruktur arbeitet nach dem LIFO-Prinzip?",
-    "answer_1": "Stack",
+    "answer_1": "Linked List",
     "answer_2": "Queue",
     "answer_3": "Array",
-    "answer_4": "Linked List",
-    "right_answer": "Stack"
+    "answer_4": "Stack",
+    "right_answer": 4
   },
   {
     "question": "Welche Schleife wird meist genutzt, um eine feste Anzahl an Durchläufen zu wiederholen?",
-    "answer_1": "for-Schleife",
+    "answer_1": "do-while-Schleife",
     "answer_2": "while-Schleife",
-    "answer_3": "do-while-Schleife",
+    "answer_3": "for-Schleife",
     "answer_4": "repeat-until-Schleife",
-    "right_answer": "for-Schleife"
+    "right_answer": 3
   },
   {
     "question": "Welches der folgenden ist KEIN primitiver Datentyp in vielen Programmiersprachen?",
-    "answer_1": "String",
-    "answer_2": "Integer",
+    "answer_1": "Integer",
+    "answer_2": "String",
     "answer_3": "Boolean",
     "answer_4": "Float",
-    "right_answer": "String"
+    "right_answer": 2
   },
   {
     "question": "Welche Datei-Endung wird typischerweise für JavaScript-Dateien verwendet?",
@@ -37,39 +37,39 @@ let questions = [
     "answer_2": ".java",
     "answer_3": ".jsx",
     "answer_4": ".script",
-    "right_answer": ".js"
+    "right_answer": 1
   },
   {
     "question": "Welches Schlüsselwort wird in Java verwendet, um eine Klasse zu erben?",
-    "answer_1": "extends",
-    "answer_2": "inherits",
+    "answer_1": "inherits",
+    "answer_2": "extends",
     "answer_3": "super",
     "answer_4": "implement",
-    "right_answer": "extends"
+    "right_answer": 2
   },
   {
     "question": "Welche Sprache wird hauptsächlich zur Gestaltung von Webseiten genutzt?",
-    "answer_1": "CSS",
+    "answer_1": "C++",
     "answer_2": "Python",
-    "answer_3": "C++",
+    "answer_3": "CSS",
     "answer_4": "SQL",
-    "right_answer": "CSS"
+    "right_answer": 3  
   },
   {
     "question": "Welches Symbol wird in vielen Programmiersprachen für Kommentare genutzt?",
-    "answer_1": "//",
+    "answer_1": "\\\\",
     "answer_2": "##",
     "answer_3": "--",
-    "answer_4": "\\\\",
-    "right_answer": "//"
+    "answer_4": "//",
+    "right_answer": 4
   },
   {
     "question": "Was bedeutet das Konzept 'OOP'?",
-    "answer_1": "Object-Oriented Programming",
-    "answer_2": "Open Operations Protocol",
+    "answer_1": "Open Operations Protocol",
+    "answer_2": "Object-Oriented Programming",
     "answer_3": "Overload-Oriented Process",
     "answer_4": "Object-Optimization Procedure",
-    "right_answer": "Object-Oriented Programming"
+    "right_answer": 2
   },
   {
     "question": "Welche dieser Sprachen ist keine Programmiersprache?",
@@ -77,7 +77,7 @@ let questions = [
     "answer_2": "Python",
     "answer_3": "Ruby",
     "answer_4": "C#",
-    "right_answer": "HTML"
+    "right_answer": 1
   }
 ];
 
@@ -102,9 +102,24 @@ function showQuestion() {
 
 function answer(selection) {
  let question = questions[currentQuestion];
- let selectedAnswer = document.getElementById('answer_' + selection).innerHTML;
- let rightAnswer = question['right_answer'];
+ console.log("selectet answer is", selection);
+ 
+ let selectedQuestionNumber = selection.slice(-1);
+ console.log("selectedQuestionNumber is ", selectedQuestionNumber);
+ console.log("right answer is ", question['right_answer']);
+
+ let idOfRightAQnswer = "answer_" + question['right_answer'];
+
+ if(selectedQuestionNumber == question['right_answer']) {
+  console.log("answer is correct");
+  document.getElementById(selection).parentNode.classList.add('bg-success');
+ }  else {
+  console.log("answer is wrong");
+  document.getElementById(selection).parentNode.classList.add('bg-danger');
+  document.getElementById(idOfRightAQnswer).parentNode.classList.add('bg-success');
+ }
 }
+
 
 function nextQuestion() {
  currentQuestion++;

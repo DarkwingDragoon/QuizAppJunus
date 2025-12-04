@@ -102,12 +102,7 @@ function showQuestion() {
 
 function answer(selection) {
  let question = questions[currentQuestion];
- console.log("selectet answer is", selection);
- 
  let selectedQuestionNumber = selection.slice(-1);
- console.log("selectedQuestionNumber is ", selectedQuestionNumber);
- console.log("right answer is ", question['right_answer']);
-
  let idOfRightAQnswer = "answer_" + question['right_answer'];
 
  if(selectedQuestionNumber == question['right_answer']) {
@@ -118,6 +113,7 @@ function answer(selection) {
   document.getElementById(selection).parentNode.classList.add('bg-danger');
   document.getElementById(idOfRightAQnswer).parentNode.classList.add('bg-success');
  }
+ document.getElementById('nextButton').disabled = false;
 }
 
 
@@ -127,6 +123,7 @@ function nextQuestion() {
   document.getElementById('answer_2').parentNode.classList.remove('bg-success', 'bg-danger');
   document.getElementById('answer_3').parentNode.classList.remove('bg-success', 'bg-danger');
   document.getElementById('answer_4').parentNode.classList.remove('bg-success', 'bg-danger');
+  document.getElementById('nextButton').disabled = true;
  showQuestion();
 }
 

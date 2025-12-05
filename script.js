@@ -87,6 +87,8 @@ let questions = [
   },
 ];
 
+let rightQuestions = 0;
+
 let currentQuestion = 0;
 
 function init() {
@@ -98,6 +100,9 @@ function showQuestion() {
   if (currentQuestion >= questions.length) {
     document.getElementById("questionBody").style.display = "none";
     document.getElementById("endScreen").style = "";
+    document.getElementById("amount-of-questions").innerHTML = questions.length;
+    document.getElementById("amount-of-right-questions").innerHTML = rightQuestions;
+    
     }
 
   let question = questions[currentQuestion];
@@ -115,9 +120,10 @@ function answer(selection) {
   let selectedQuestionNumber = selection.slice(-1);
   let idOfRightAQnswer = "answer_" + question["right_answer"];
 
-  if (selectedQuestionNumber == question["right_answer"]) {
+  if (selectedQuestionNumber == question["right_answer"]) { // Frage wird richtig beantwortet
     console.log("answer is correct");
     document.getElementById(selection).parentNode.classList.add("bg-success");
+    rightQuestions++;
   } else {
     console.log("answer is wrong");
     document.getElementById(selection).parentNode.classList.add("bg-danger");

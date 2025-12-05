@@ -19,15 +19,21 @@
     <div class="container">
       <div class="card quiz_Card">
         <img
-          src="./img/Titel.jpg"
+          src="./img/Titel.jpg" id="header-img"
           class="card-img-top"
           alt="Quiz Titel Image"
         />
+        
+        <div class="progress">
+  <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%;">25%</div>
+</div>
 
         <div class="card-body" id="endScreen" style="display: none">
-          <div class="text-center ">Quiz ist beended!</div>
-          <div><img src="./img/trophy.png" class="width-100" alt="Pockal in mit dunklem runden Hingergrund"></div>
-          <div class="text-center">Du hast <b id="amount-of-right-questions">XXX</b> von <b id="amount-of-questions">XXX</b> Fragen richtig beantwortet.</div>
+          <div class="text-center final-headline">Quiz beendet!</div>
+          <div class="text-center">
+            Du hast <b id="amount-of-right-questions">XXX</b> von
+            <b id="amount-of-questions">XXX</b> Fragen richtig beantwortet.
+          </div>
         </div>
 
         <div class="card-body" id="questionBody">
@@ -51,12 +57,19 @@
 
           <div class="question-footer">
             <span>
-              <b id="currentQuestionNumber">1</b> von <b id="allQuestions">5</b> Fragen
+              <b id="currentQuestionNumber">1</b> von
+              <b id="allQuestions">5</b> Fragen
             </span>
-            
-            <button class="btn btn-primary" disabled id="nextButton" onclick="nextQuestion()">nächste Frage</button>
-          </div>
 
+            <button
+              class="btn btn-primary"
+              disabled
+              id="nextButton"
+              onclick="nextQuestion()"
+            >
+              nächste Frage
+            </button>
+          </div>
         </div>
       </div>
     </div>
